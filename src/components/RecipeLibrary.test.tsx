@@ -21,7 +21,6 @@ describe("RecipeLibrary", () => {
       }
     ];
 
-
   it("contains no items message when no items are given", () => {
     const recipeLibrary = enzyme.shallow(<RecipeLibrary/>);
     const noItemsMsg = recipeLibrary.find({"data-test": 'noItemsMsg'});

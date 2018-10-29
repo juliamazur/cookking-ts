@@ -1,19 +1,28 @@
 import * as React from 'react';
-import './App.css';
 
-import logo from './logo.svg';
+import RecipeLibrary from './components/RecipeLibrary';
+import Schedule from './components/Schedule';
 
 class App extends React.Component {
+
+  recipeFixture = [
+    {
+      "id": "iedjwidjiew",
+      "name": "ziemniaki"
+    },
+    {
+      "id": "ifupwiedpds",
+      "name": "mizeria"
+    }
+  ];
+
+  scheduleItemsFixture = ['rwerer','ewrwrfsd','sdfdf'];
+
   public render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+      <div>
+        <RecipeLibrary items={this.recipeFixture}/>
+        <Schedule  items={this.scheduleItemsFixture}/>
       </div>
     );
   }
