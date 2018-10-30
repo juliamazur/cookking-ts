@@ -42,6 +42,21 @@ describe("RecipeLibrary", () => {
     expect(container.text()).toContain('ziemniaki');
     expect(container.text()).toContain('mizeria');
   });
+  it("contains Buttons when items are given", () => {
+    const recipeLibrary = enzyme.shallow(<RecipeLibrary items={items}/>);
+    const container = recipeLibrary.find({"data-test": 'itemList'});
+    const buttons = container.find('Button');
+    expect(buttons.length).toEqual(2);
+  });
+  it('should call mock function when button is clicked', () => {
+    const mockFn = jest.fn();
+    const recipeLibrary = enzyme.mount(<RecipeLibrary items={items} addToSchedule={mockFn}/>);
+    const container = recipeLibrary.find({"data-test": 'itemList'});
+    const button = container.find('Button').first();
+    expect(button.length).toEqual(1);
+    button.simulate('click');
+    expect(mockFn).toHaveBeenCalled();
+  });
 });
 
 

@@ -21,7 +21,7 @@ class App extends React.Component {
   public render() {
     return (
       <div>
-        <RecipeLibrary items={this.recipeFixture}/>
+        <RecipeLibrary items={this.recipeFixture} addToSchedule={() => {console.log('add to schedule');}}/>
         <Schedule  items={this.scheduleItemsFixture}/>
       </div>
     );
